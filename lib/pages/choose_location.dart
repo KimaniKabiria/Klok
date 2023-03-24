@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learn_flutter/services/world_time.dart';
+import 'package:klock/services/world_time.dart';
 
 class ChooseLocation extends StatefulWidget {
   const ChooseLocation({super.key});
@@ -66,10 +66,9 @@ class _ChooseLocationState extends State<ChooseLocation> {
                   title: Text(
                     locations[index].location,
                     style: const TextStyle(
-                      fontFamily: 'Bellota',
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold
-                    ),
+                        fontFamily: 'Bellota',
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold),
                   ),
                   leading: CircleAvatar(
                     backgroundImage:

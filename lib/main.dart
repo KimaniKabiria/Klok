@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:learn_flutter/pages/choose_location.dart';
-import 'package:learn_flutter/pages/home.dart';
-import 'package:learn_flutter/pages/loading.dart';
+import 'package:klock/pages/choose_location.dart';
+import 'package:klock/pages/home.dart';
+import 'package:klock/pages/loading.dart';
 
 void main() {
   runApp(MaterialApp(

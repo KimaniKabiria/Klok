@@ -1,6 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:learn_flutter/pages/about.dart';
+import 'package:klock/pages/about.dart';
 
 class Main extends StatefulWidget {
   const Main({super.key});

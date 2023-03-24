@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learn_flutter/services/world_time.dart';
+import 'package:klock/services/world_time.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class Loading extends StatefulWidget {
