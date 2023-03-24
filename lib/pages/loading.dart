@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/services/world_time.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class Loading extends StatefulWidget {
   const Loading({super.key});
@@ -9,16 +10,16 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State<Loading> {
-  String time = 'Loadig ...';
-
   void setupWorldTime() async {
     WorldTime instance = WorldTime(
         location: 'Nairobi', flag: 'kenya.png', url: 'Africa/Nairobi');
     await instance.getTime();
+    // ignore: use_build_context_synchronously
     Navigator.pushReplacementNamed(context, '/home', arguments: {
       'location': instance.location,
       'time': instance.time,
       'flag': instance.flag,
+      'isDayTime': instance.isDayTime,
     });
   }
 
@@ -31,10 +32,35 @@ class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(50.0),
-        child: Text('Loading'),
-      ),
-    );
+        backgroundColor: Colors.grey[800],
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.watch_later,
+                color: Colors.yellow[50],
+                size: 150.0,
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              Text(
+                'KLOCK',
+                style: TextStyle(
+                  fontFamily: 'Bellota',
+                  fontSize: 80.0,
+                  color: Colors.yellow[200],
+                ),
+              ),
+              const SizedBox(height: 30.0),
+              const SpinKitRing(
+                color: Colors.white,
+                size: 50.0,
+              ),
+            ],
+          ),
+        ));
   }
 }

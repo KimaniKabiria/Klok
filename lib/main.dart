@@ -9,8 +9,9 @@ void main() {
     initialRoute: '/',
     routes: {
       '/': (context) => Loading(),
-      '/home': (context) => Home(),
+      '/home': (context) => Main(),
       '/location': (context) => ChooseLocation()
     },
+
   ));
 }

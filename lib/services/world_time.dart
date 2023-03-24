@@ -7,6 +7,7 @@ class WorldTime {
   String time = ''; //Time in that Location
   String flag; //Url to asset flag icon
   String url; //Location URL for API endpoint
+  late bool isDayTime; //True or False id Day time or not
 
   WorldTime({required this.location, required this.flag, required this.url});
 
@@ -21,12 +22,15 @@ class WorldTime {
       //Get properties from Data
       String datetime = data['datetime'];
       String offset = data['utc_offset'].substring(1, 3);
+      String offsetType = data['utc_offset'].substring(0, 1);
+      print(data['utc_offset']);
 
       //Create datetimer object
       DateTime now = DateTime.parse(datetime);
-      now = now.add(Duration(hours: int.parse(offset)));
+      now = offsetType == '+' ? now.add(Duration(hours: int.parse(offset))) : now.subtract(Duration(hours: int.parse(offset)));
 
       //Set the time property
+      isDayTime = now.hour >= 6 && now.hour <= 18 ? true : false;
       time = DateFormat.jm().format(now);
     } catch (e) {
       print('Caught error: $e');
